@@ -1,25 +1,51 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Hero from './Hero'
+import Footer from './Footer'
+import Results from './Results'
+import Nav from './Nav'
+import Artist from './Artist'
+
+import ChooseSongs from './ChooseSongs'
+
+const SERVER_URL = 'http://localhost:5000'
+
+// debugger;
+
 
 class App extends Component {
+  state = {
+    songList: [],
+    query: '',
+  }
+
+  handleSearchInput = (e) => this.setState({query: e.target.value});
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.getArtist(this.state.query);
+    console.log('it works', this.state.query)
+  }
+
+  getArtist = async (q) => {
+    try {
+      const artist = await fetch(`${SERVER_URL}/api/spotify/artist?query=${q}`)
+      console.log(artist);
+    } catch (error){
+      return error;
+      console.log(error, "THERE'S AN ERROR")
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Nav />
+        <Hero />
+        <ChooseSongs onChange={this.handleSearchInput} onSubmit={this.handleSubmit} value={this.state.query}/>
+        <Artist />
+        <Results />
+        <Footer />
       </div>
     );
   }
