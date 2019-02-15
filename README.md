@@ -1,3 +1,21 @@
+# MixMe.
+
+Application built primarily using React, Express, Mongoose, and Styled components to deliver song recommendations and custom mixes based on bands/artists the user inputs.
+
+
+
+Working Heroku Application:
+https://mix-me-react.herokuapp.com/
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
