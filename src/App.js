@@ -10,7 +10,6 @@ import styled from 'styled-components';
 import ChooseSongs from './ChooseSongs';
 import axios from 'axios';
 
-const SERVER_URL = 'http://localhost:5000'
 
 // debugger;
 const AppContainer = styled.div`
@@ -58,7 +57,7 @@ class App extends Component {
 
   getArtist = async (q) => {
     try {
-      await fetch(`${SERVER_URL}/api/spotify/artist?query=${q}`)
+      await fetch(`${REACT_APP_API}/api/spotify/artist?query=${q}`)
         .then(res => {
           res.json().then(data => {
             this.setArtists([...this.state.artists, data])
@@ -88,7 +87,7 @@ class App extends Component {
 
   getRecommendations = async () => {
     try{
-      await fetch(`${SERVER_URL}/api/spotify/recommendations?artists=${this.seedArtists()}`)
+      await fetch(`${REACT_APP_API}/api/spotify/recommendations?artists=${this.seedArtists()}`)
       .then(res => {
         res.json().then(data => {
           this.setRecommendations(data.tracks);
@@ -102,7 +101,7 @@ class App extends Component {
   createMix = async () => {
     const { artists, songs } = this.state;
     try{
-      await axios.post(`${SERVER_URL}/api/mixes`, { artists, songs })
+      await axios.post(`${REACT_APP_API}/api/mixes`, { artists, songs })
       .then(res => {
         console.log(res)
         this.getMixes();
@@ -114,7 +113,7 @@ class App extends Component {
   }
 
   getMixes = async() => {
-    await fetch(`${SERVER_URL}/api/mixes/`)
+    await fetch(`${REACT_APP_API}/api/mixes/`)
     .then( res => {
       console.log('here', res)
       res.json().then(data => {
@@ -134,7 +133,7 @@ class App extends Component {
   }
 
   deleteMix = async(id) => {
-    await axios.delete(`${SERVER_URL}/api/mixes/${id}`).then(() => {
+    await axios.delete(`${REACT_APP_API}/api/mixes/${id}`).then(() => {
       console.log('deleted')
       this.getMixes()
     }).catch(err => console.log(err))
