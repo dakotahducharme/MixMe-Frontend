@@ -33,9 +33,6 @@ class Example extends React.Component {
               <NavItem>
                 <NavLink href="https://github.com/dakotahducharme">GitHub</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="http://localhost:5000/api/spotify/artist?query=retirement%20party">mom jeans</NavLink>
-              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

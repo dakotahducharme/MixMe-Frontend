@@ -75,6 +75,19 @@ class App extends Component {
     }
   }
 
+  createMix = async () => {
+    const { artists, songs } = this.state;
+    try{
+      await fetch(`${SERVER_URL}/api/mixes`, {
+        method: "POST",
+        body: { artists, songs }
+      }).then(
+        res => console.log(res)
+      ).catch(err => console.log(err))
+    }catch(err){
+      return err;
+    }
+  }
 
 
   render() {
@@ -87,6 +100,9 @@ class App extends Component {
           <ChooseSongs onChange={this.handleSearchInput} onSubmit={this.handleSubmit} value={this.state.query}/>
           {artists.map(artist => <Artist key={artist.id} {...artist}/>)}
           {artists.length > 0 && <button onClick={this.getRecommendations}>go</button>}
+
+          {songs.length > 0 && <button onClick={this.createMix}>save mix</button>}
+
           <Results songs={songs}/>
         </ContentContainer>
         <Footer />

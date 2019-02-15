@@ -6,6 +6,7 @@ const StyledResults = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  align-items: stretch;
 `
 
 const showSongs = (songs) => (
