@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StyledSong = styled.div`
   width: 200px;
+  padding: 8px;
   img {
     width: 100%;
   }
@@ -10,9 +11,9 @@ const StyledSong = styled.div`
 
 const Song = (props) => (
   <StyledSong>
-    <p>{props.artists.map(artist => artist.name).join(', ')}</p>
+  <img src={props.artwork}/>
+    <p>{props.artists}</p>
     <p>{props.name}</p>
-    <img src={props.album.images[0].url}/>
   </StyledSong>
 )
 

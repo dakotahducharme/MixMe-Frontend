@@ -14,6 +14,17 @@ class Example extends React.Component {
     };
   }
 
+  renderMixes = () => {
+    const { mixes } = this.props;
+    return mixes.map((mix, i) => {
+      return(
+        <NavItem onClick={() => this.props.openMix(mix)} key={i}>
+          <p>{mix.artists.map(artist => artist.name).join(', ')}</p>
+        </NavItem>
+      )
+    })
+  }
+
   toggleNavbar() {
     this.setState({
       collapsed: !this.state.collapsed
@@ -33,6 +44,7 @@ class Example extends React.Component {
               <NavItem>
                 <NavLink href="https://github.com/dakotahducharme">GitHub</NavLink>
               </NavItem>
+              {this.renderMixes()}
             </Nav>
           </Collapse>
         </Navbar>
