@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Artist = () => {
+const Artist = (props) => {
   return(
     <div>
-      <p> </p>
+      <p>{props.name}</p>
     </div>
   )
 }
-// display artists name, album art , and a link to their spotify (url)
 
 export default Artist;

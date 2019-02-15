@@ -13,11 +13,12 @@ const Input = styled.input`
 `
 
 // Render a styled text input with the standard input color, and one with a custom input color
-const ChooseSongs = ({onChange, onSubmit, query}) => {
+const ChooseSongs = ({onChange, onSubmit, value}) => {
+  console.log(value)
   return(
     <div>
       <form>
-        <Input onChange={onChange} value={query} defaultValue="Artist Name" type="text" />
+        <Input onChange={onChange} value={value} placeholder="Artist Name" type="text" />
         <button color="white" id="submit" onClick={onSubmit}>add</button >
       </form>
     </div>
