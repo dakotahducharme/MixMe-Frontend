@@ -17,6 +17,7 @@ const ChooseSongs = ({onChange, onSubmit, value}) => {
   return(
     <div>
       <form>
+      <h5>Choose up to 5 Artists</h5>
         <Input onChange={onChange} value={value} placeholder="Artist Name" type="text" />
         <button color="white" id="submit" onClick={onSubmit}>add</button >
       </form>

@@ -1,5 +1,5 @@
 .App {
-  
+
 }
 
 button {
@@ -9,4 +9,20 @@ button {
   margin: 1em;
   padding: 0.25em 1em;
   border-radius: 3px;
+}
+
+body{
+  background-color: black;
+}
+
+h5 {
+  padding-top: 20px;
+}
+
+p {
+  color: white;
+}
+
+.mixes {
+  cursor: pointer;
 }

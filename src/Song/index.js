@@ -12,7 +12,7 @@ const StyledSong = styled.div`
 const Song = (props) => (
   <StyledSong>
   <img src={props.artwork}/>
-    <p>{props.artists}</p>
+    <small>{props.artists}</small>
     <p>{props.name}</p>
   </StyledSong>
 )

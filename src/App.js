@@ -142,7 +142,6 @@ class App extends Component {
 
   render() {
     const { artists, songs, mixes, selectedMix } = this.state;
-    console.log(selectedMix);
     return (
       <AppContainer>
         <Nav mixes={mixes} openMix={this.openMix}/>
@@ -160,7 +159,7 @@ class App extends Component {
             <div>
               <ChooseSongs onChange={this.handleSearchInput} onSubmit={this.handleSubmit} value={this.state.query}/>
               {this.renderArtists(artists)}
-              {artists.length > 0 && <button onClick={this.getRecommendations}>go</button>}
+              {artists.length > 0 && <button onClick={this.getRecommendations}>get recommendations</button>}
               {songs.length > 0 && <button onClick={this.createMix}>save mix</button>}
               <Results songs={songs}/>
             </div>

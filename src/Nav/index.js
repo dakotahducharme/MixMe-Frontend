@@ -34,17 +34,19 @@ class Example extends React.Component {
     return (
       <div>
         <Navbar color="dark" dark>
-          <NavbarBrand href="/" className="mr-auto">Mix Me.</NavbarBrand>
+          <NavbarBrand href="/" className="mr-auto">MixMe.</NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar>
               <NavItem>
-                <NavLink href="#">Home</NavLink>
+                <NavLink href="/">Home</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/dakotahducharme">GitHub</NavLink>
               </NavItem>
+              <div id="mixes">
               {this.renderMixes()}
+              </div>
             </Nav>
           </Collapse>
         </Navbar>
